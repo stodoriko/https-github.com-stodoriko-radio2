@@ -4,11 +4,9 @@ public class Radio {
     private int minRadio = 0;
     private int maxRadio = 9;
 
-    private int currentVolume;
+    private int currentVolume = 6;
     private int minVolume = 0;
     private int maxVolume = 10;
-
-    private int theEnteredChanel;
 
 
     public int pressNextChannel() {
@@ -51,7 +49,7 @@ public class Radio {
 
     public int reduceVolume() {
         currentVolume = getCurrentVolume();
-        if (currentVolume > 10) {
+        if ((currentVolume > 0) && (currentVolume <=10)) {
             currentVolume = currentVolume - 1;
         }
         return currentVolume;

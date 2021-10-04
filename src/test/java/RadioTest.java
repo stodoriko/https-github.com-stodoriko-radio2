@@ -33,7 +33,7 @@ public class RadioTest {
     @Test
     public void reduceVolume() {
         Radio radio = new Radio();
-        int actual = radio.increaseVolume();
+        int actual = radio.reduceVolume();
         System.out.println("Текущий уровень звука: " + actual);
     }
 
