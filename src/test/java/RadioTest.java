@@ -1,40 +1,69 @@
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class RadioTest {
 
 
+    //Если текущая радиостанция - 9 и клиент нажал на кнопку next (следующая) на пульте, то текущей должна стать 0-ая;
+    // в остальных случаях радио переключается просто на следующую станцию.
     @Test
-    public void pressNextChannel() {
+    public void shouldComeToBeginningIfChannelAboveMax() {
         Radio radio = new Radio();
-        int actual = radio.pressNextChannel();
-        System.out.println("Текущая радиостанция: " + actual);
+
+        radio.setCurrentChanell(9); // чтобы иметь возможность тестировать на любом канале
+
+        int expected = radio.getRadioChannelMin();
+        radio.switchToNextChannel();
+
+        int actual = radio.getCurrentChannel();
+        assertEquals(expected, actual);
     }
 
+
+    // Если текущая радиостанция - 0 и клиент нажал на кнопку prev (предыдущая) на пульте, то текущей должна стать 9-ая;
+    // в остальных случаях радиопереключается просто на предыдущую станцию/ (создайте отдельный метод для этой операции)
     @Test
-    public void pressPrevChannel() {
+    public void shouldComeToEndIfChannelLessMin() {
         Radio radio = new Radio();
-        int actual = radio.pressPrevChannel();
-        System.out.println("Текущая радиостанция: " + actual);
+
+        radio.setCurrentChanell(0);
+
+        int expected = radio.getRadioChannelMax();
+        radio.switchToPrevChannel();
+
+        int actual = radio.getCurrentChannel();
+        assertEquals(expected, actual);
     }
 
+
+    // Если уровень громкости звука достиг максимального значения, то дальнейшее нажатие на + не должно ни к чему приводить
     @Test
-    public void setRadioChannel() {
+    public void shouldNotAddingIfMax() {
         Radio radio = new Radio();
-        radio.setRadioChannel(-1);
+
+        radio.setCurrentVolume(10);
+
+        int expected = radio.getVolumeMax();
+        radio.increaseVolume();
+
+        int actual = radio.getCurrentVolume();
+        assertEquals(expected, actual);
     }
 
-    @Test
-    public void increaseVolume() {
-        Radio radio = new Radio();
-        int actual = radio.increaseVolume();
-        System.out.println("Текущий уровень звука: " + actual);
-    }
 
+    // Если уровень громкости звука достиг минимального значения, то дальнейшее нажатие на - не должно ни к чему приводить
     @Test
-    public void reduceVolume() {
+    public void shouldNotTurnDownIfMax() {
         Radio radio = new Radio();
-        int actual = radio.reduceVolume();
-        System.out.println("Текущий уровень звука: " + actual);
+
+        radio.setCurrentVolume(0);
+
+        int expected = radio.getVolumeMin();
+        radio.decreaseVolume();
+
+        int actual = radio.getCurrentVolume();
+        assertEquals(expected, actual);
     }
 
 }
