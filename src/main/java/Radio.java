@@ -8,6 +8,8 @@ public class Radio {
     private int volumeMax = 10;
     private int currentVolume;
 
+    private boolean on;
+
 
 
     public void switchToNextChannel() {
@@ -33,18 +35,18 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (currentVolume < volumeMax) {
-            currentVolume = currentVolume + 1;
-        } else if (currentVolume == volumeMax) {
-            currentVolume = getCurrentVolume();
+        if (getCurrentVolume() == volumeMax) {
+            setCurrentVolume(getCurrentVolume());
+        } else {
+            setCurrentVolume(currentVolume + 1);
         }
     }
 
     public void decreaseVolume() {
-        if (currentVolume > volumeMin) {
-            currentVolume = currentVolume - 1;
-        } else if (currentVolume == volumeMin) {
+        if (getCurrentVolume() == volumeMin) {
             currentVolume = getCurrentVolume();
+        } else {
+            setCurrentVolume(currentVolume - 1);
         }
     }
 
@@ -86,6 +88,14 @@ public class Radio {
 
     public int getCurrentVolume() {
         return currentVolume;
+    }
+
+    public boolean isOn() {
+        return on;
+    }
+
+    public void setOn(boolean on) {
+        this.on = on;
     }
 
 }

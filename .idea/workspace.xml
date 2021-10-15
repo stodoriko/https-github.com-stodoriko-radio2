@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="369afa6c-a826-48df-ad18-4b612bc9eccb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Radio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Radio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/RadioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RadioTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Radio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/RadioTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +41,7 @@
       <recent name="C:\Users\Family\IdeaProjects\oop_and_design\src\test\java" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RadioTest.shouldNotTurnDownVolumeIfMax">
+  <component name="RunManager" selected="JUnit.RadioTest">
     <configuration name="RadioTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="oop_and_design" />
       <option name="PACKAGE_NAME" value="" />
@@ -54,11 +51,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RadioTest.increaseCurrentStationIfNotMax" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RadioTest.shouldNotAddingVolumeIfMax" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="oop_and_design" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RadioTest" />
-      <option name="METHOD_NAME" value="increaseCurrentStationIfNotMax" />
+      <option name="METHOD_NAME" value="shouldNotAddingVolumeIfMax" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -96,11 +93,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RadioTest.shouldNotTurnDownVolumeIfMax" />
         <item itemvalue="JUnit.RadioTest" />
+        <item itemvalue="JUnit.RadioTest.shouldNotAddingVolumeIfMax" />
+        <item itemvalue="JUnit.RadioTest.shouldNotTurnDownVolumeIfMax" />
         <item itemvalue="JUnit.RadioTest.shouldNotSwitchIfLessThanMin" />
         <item itemvalue="JUnit.RadioTest.shouldNotSwitchIfMoreThanMax" />
-        <item itemvalue="JUnit.RadioTest.increaseCurrentStationIfNotMax" />
       </list>
     </recent_temporary>
   </component>
@@ -126,16 +123,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/RadioTest.java</url>
-          <line>85</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

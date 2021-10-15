@@ -10,8 +10,10 @@ public class RadioTest {
     @Test
     public void shouldComeToBeginningIfEqualMax() {
         Radio radio = new Radio();
-
-        radio.setCurrentChannel(9);
+        radio.setOn(true);
+        if (radio.isOn()) {
+            radio.setCurrentChannel(9);
+        }
 
         int expected = radio.getRadioChannelMin();
         radio.switchToNextChannel();
