@@ -2,7 +2,7 @@ public class Radio {
 
     private int radioChannelMin = 0;
     private int radioChannelMax = 9;
-    private int currentChanell;
+    private int currentChannel;
 
     private int volumeMin = 0;
     private int volumeMax = 10;
@@ -11,32 +11,40 @@ public class Radio {
 
 
     public void switchToNextChannel() {
-        if (getCurrentChannel() < radioChannelMax) {
-            setCurrentChanell(currentChanell++);
-        } else  if (getCurrentChannel() == radioChannelMax) {
-            setCurrentChanell(radioChannelMin);
+        if (getCurrentChannel() == getRadioChannelMax()) {
+            setCurrentChannel(radioChannelMin);
+        } else if (getCurrentChannel() < getRadioChannelMax()) {
+            currentChannel++;
+            setCurrentChannel(currentChannel);
+        } else {
+            setCurrentChannel(radioChannelMax);
         }
     }
 
     public void switchToPrevChannel() {
-        if (getCurrentChannel() > radioChannelMin) {
-            setCurrentChanell(currentChanell--);
-        } else if (getCurrentChannel() == radioChannelMin) {
-            setCurrentChanell(radioChannelMax);
+        if (getCurrentChannel() == radioChannelMin) {
+            setCurrentChannel(radioChannelMax);
+        } else if (getCurrentChannel() > radioChannelMin) {
+            currentChannel--;
+            setCurrentChannel(currentChannel);
+        } else {
+            setCurrentChannel(radioChannelMin);
         }
     }
 
     public void increaseVolume() {
-        currentVolume = getCurrentVolume();
-        if (currentVolume < 10) {
+        if (currentVolume < volumeMax) {
             currentVolume = currentVolume + 1;
+        } else if (currentVolume == volumeMax) {
+            currentVolume = getCurrentVolume();
         }
     }
 
     public void decreaseVolume() {
-        currentVolume = getCurrentVolume();
-        if (currentVolume > 0) {
+        if (currentVolume > volumeMin) {
             currentVolume = currentVolume - 1;
+        } else if (currentVolume == volumeMin) {
+            currentVolume = getCurrentVolume();
         }
     }
 
@@ -49,36 +57,35 @@ public class Radio {
         return radioChannelMax;
     }
 
-    public int getCurrentChannel() {
-        return currentChanell;
-    }
 
-    public void setCurrentChanell(int currentChanell) {
-        this.currentChanell = currentChanell;
+    public int getCurrentChannel() {
+        return currentChannel;
     }
 
     public int getVolumeMin() {
         return volumeMin;
     }
 
-    public void setVolumeMin(int volumeMin) {
-        this.volumeMin = volumeMin;
+    public void setCurrentChannel(int currentChannel) {
+        this.currentChannel = currentChannel;
+        if (getCurrentChannel() > radioChannelMax) {
+            return;
+        }
+        if (getCurrentChannel() < radioChannelMin) {
+            return;
+        }
+    }
+
+    public void setCurrentVolume(int currentVolume) {
+        this.currentVolume = currentVolume;
     }
 
     public int getVolumeMax() {
         return volumeMax;
     }
 
-    public void setVolumeMax(int volumeMax) {
-        this.volumeMax = volumeMax;
-    }
-
     public int getCurrentVolume() {
         return currentVolume;
-    }
-
-    public void setCurrentVolume(int currentVolume) {
-        this.currentVolume = currentVolume;
     }
 
 }
